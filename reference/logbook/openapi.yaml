@@ -34,6 +34,60 @@ paths:
         name: logbook_id
         in: path
         required: true
+    put:
+      summary: ''
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/logbook-entry.v1.yaml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/logbook-entry.v1.yaml
+      description: update a logbook
+      tags:
+        - staff
+        - 3rd party
+      operationId: updateLogbook
+  /logbooks:
+    get:
+      summary: getLogbooks
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ./models/logbook-entry.v1.yaml
+      description: get all logbooks
+      operationId: getAllLogbooks
+    post:
+      summary: ''
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/logbook-entry.v1.yaml
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ./models/logbook-entry.v1.yaml
+        description: ''
+      description: submit a logbook
+      operationId: submitALogbook
+      tags:
+        - 3rd party
+        - one touch
 components:
   schemas:
     Logbook Entry:
