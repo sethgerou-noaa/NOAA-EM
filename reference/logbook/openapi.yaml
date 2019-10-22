@@ -5,6 +5,10 @@ info:
   license:
     name: MIT
   description: Logbook API
+  contact:
+    name: seth
+    url: gerou
+    email: seth.gerou@noaa.gov
 servers:
   - url: 'http://localhost:3000'
 paths:
@@ -23,8 +27,6 @@ paths:
                 $ref: ./models/logbook-entry.v1.yaml
       description: get an existing logbook
       parameters: []
-      requestBody:
-        description: ''
       operationId: showLogbookById
     parameters:
       - schema:
@@ -38,3 +40,4 @@ components:
       type: array
       items:
         $ref: ./models/logbook-entry.v1.yaml
+  securitySchemes: {}
