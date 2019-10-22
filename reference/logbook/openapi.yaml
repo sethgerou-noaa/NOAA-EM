@@ -4,21 +4,13 @@ info:
   version: '1.0'
   license:
     name: MIT
+  description: Logbook API
 servers:
   - url: 'http://localhost:3000'
 paths:
   '/logbooks/{logbook_id}':
-    parameters:
-      - type: integer
-        name: logbook_id
-        in: path
-        required: true
-        schema:
-          type: integer
-        description: id of logbook to retrieve
     get:
       summary: logbook_id
-      operationId: showLogbookById
       tags:
         - 3rd party
         - one touch
@@ -28,14 +20,21 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ./models/logbook.yaml
+                $ref: ./models/logbook-entry.v1.yaml
       description: get an existing logbook
       parameters: []
       requestBody:
         description: ''
+      operationId: showLogbookById
+    parameters:
+      - schema:
+          type: number
+        name: logbook_id
+        in: path
+        required: true
 components:
   schemas:
     Logbook Entry:
       type: array
       items:
-        $ref: ./models/logbook.yaml
+        $ref: ./models/logbook-entry.v1.yaml
