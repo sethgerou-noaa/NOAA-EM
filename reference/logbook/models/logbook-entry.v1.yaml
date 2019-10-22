@@ -1,24 +1,14 @@
-title: Logbook Entry
+title: logbook
 type: object
 x-examples: {}
 properties:
-  id:
+  logbook_id:
     type: string
     format: uuid
   friendlyId:
     type: string
   LogbookPageNumber:
     type: number
-  isEfp:
-    type: boolean
-  isObserved:
-    type: boolean
-  crewSize:
-    type: number
-  skipperName:
-    type: string
-  buyers:
-    type: string
   fishery:
     type: object
     properties:
@@ -79,7 +69,13 @@ properties:
   fishTickets:
     type: array
     items:
-      type: number
+      type: object
+      properties:
+        deliveryDate:
+          type: string
+          format: date-time
+        receivingTicketNumber:
+          type: number
   hauls:
     type: array
     items:
@@ -119,18 +115,27 @@ properties:
                 type: string
               weight:
                 type: string
-  createdBy:
-    type: object
-    properties:
-      '':
-        type: string
-  createdDate:
+  notes:
+    type: string
+  updatedDate:
     type: string
     format: date-time
   updatedBy:
     type: object
-  updatedDate:
+  createdDate:
     type: string
     format: date-time
-  notes:
+  createdBy:
+    type: object
+  gearType (trawl only at this point?):
     type: string
+  crewSize:
+    type: number
+  skipperName:
+    type: string
+  buyers:
+    type: string
+  isEfp:
+    type: boolean
+  isObserved:
+    type: boolean

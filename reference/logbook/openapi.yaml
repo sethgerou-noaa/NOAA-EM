@@ -2,23 +2,40 @@ openapi: 3.0.0
 info:
   title: logbook
   version: '1.0'
+  license:
+    name: MIT
 servers:
   - url: 'http://localhost:3000'
 paths:
   '/logbooks/{logbook_id}':
     parameters:
-      - type: string
+      - type: integer
         name: logbook_id
         in: path
         required: true
+        schema:
+          type: integer
+        description: id of logbook to retrieve
     get:
       summary: logbook_id
+      operationId: showLogbookById
       tags:
         - 3rd party
         - one touch
-      responses: {}
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./models/logbook.yaml
       description: get an existing logbook
       parameters: []
-      requestBody: {}
+      requestBody:
+        description: ''
 components:
-  schemas: {}
+  schemas:
+    Logbook Entry:
+      type: array
+      items:
+        $ref: ./models/logbook.yaml
