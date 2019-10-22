@@ -5,12 +5,8 @@ info:
 servers:
   - url: 'http://localhost:3000'
 paths:
-  '/users/{user_id}/logbooks/{logbook_id}':
+  '/logbooks/{logbook_id}':
     parameters:
-      - type: string
-        name: user_id
-        in: path
-        required: true
       - type: string
         name: logbook_id
         in: path
@@ -21,5 +17,8 @@ paths:
         - 3rd party
         - one touch
       responses: {}
+      description: get an existing logbook
+      parameters: []
+      requestBody: {}
 components:
   schemas: {}

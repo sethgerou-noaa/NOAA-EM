@@ -1,5 +1,136 @@
 title: Logbook Entry
 type: object
+x-examples: {}
 properties:
   id:
+    type: string
+    format: uuid
+  friendlyId:
+    type: string
+  LogbookPageNumber:
+    type: number
+  isEfp:
+    type: boolean
+  isObserved:
+    type: boolean
+  crewSize:
+    type: number
+  skipperName:
+    type: string
+  buyers:
+    type: string
+  fishery:
+    type: object
+    properties:
+      name:
+        type: string
+      organization:
+        type: string
+      isIfq:
+        type: boolean
+      ifEfp:
+        type: boolean
+      isEm:
+        type: boolean
+      isOpenAccess:
+        type: boolean
+      isLimitedEntry:
+        type: boolean
+      isPermitted:
+        type: boolean
+      isActive:
+        type: boolean
+  vessel:
+    type: object
+    properties:
+      vesselName:
+        type: string
+      vesselRegNum:
+        type: string
+      homePort:
+        type: string
+  permit:
+    type: object
+    properties:
+      number:
+        type: string
+      type:
+        type: string
+  departureDateTime:
+    type: string
+    format: date-time
+  departurePort:
+    type: object
+    properties:
+      city:
+        type: string
+      state:
+        type: string
+  returnDateTime:
+    type: string
+    format: date-time
+  returnPort:
+    type: object
+    properties:
+      city:
+        type: string
+      state:
+        type: string
+  fishTickets:
+    type: array
+    items:
+      type: number
+  hauls:
+    type: array
+    items:
+      type: object
+      properties:
+        date:
+          type: string
+        setTime:
+          type: string
+        upTime:
+          type: string
+        lat:
+          type: string
+        lon:
+          type: string
+        avgDepth:
+          type: number
+        netType:
+          type: string
+        targetStrategy:
+          type: string
+        catch:
+          type: array
+          items:
+            type: object
+            properties:
+              speciesCode:
+                type: string
+              weight:
+                type: string
+        discard:
+          type: array
+          items:
+            type: object
+            properties:
+              speciesCode:
+                type: string
+              weight:
+                type: string
+  createdBy:
+    type: object
+    properties:
+      '':
+        type: string
+  createdDate:
+    type: string
+    format: date-time
+  updatedBy:
+    type: object
+  updatedDate:
+    type: string
+    format: date-time
+  notes:
     type: string
